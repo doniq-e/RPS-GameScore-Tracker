@@ -3,38 +3,43 @@ import random
 opts = ["rock", "paper", "scissors"]
 
 to_guess = random.choice(opts)
-#print(to_guess)
+l_to_guess = to_guess.lower()
 
 guess = input("Choose rock, paper, or scissors: ")
+l_guess = guess.lower()
 
-#if(to_guess == guess):
-  #  print("You lost!")
-
-if(to_guess=="rock"):
-    if(guess=="rock"):
-        print("You lost!")
-    if (guess == "scissors"):
-        print("You lost!")
-    if (guess == "paper"):
-        print("You won!")
-
-if(to_guess=="paper"):
-    if(guess=="paper"):
-        print("You lost!")
-    if (guess == "rock"):
-        print("You lost!")
-    if (guess == "scissors"):
-        print("You won!")
+counter = 0
 
 
-if(to_guess=="scissors"):
-    if(guess=="paper"):
-        print("You lost!")
-    if (guess == "scissors"):
-        print("You lost!")
-    if (guess == "rock"):
-        print("You won!")
+while(counter <= 6):
 
-if(guess not in opts):
-    print("Please type rock, paper, or scissors.")
+    if(l_to_guess=="rock"):
+        elif(l_guess=="rock"):
+            print("You lost!")
+        elif (l_guess == "scissors"):
+            print("You lost!")
+        elif (l_guess == "paper"):
+            print("You won!")
+
+    if(l_to_guess=="paper"):
+        if(l_guess=="paper"):
+            print("You lost!")
+        if (l_guess == "rock"):
+            print("You lost!")
+        if (l_guess == "scissors"):
+            print("You won!")
+
+
+    if(l_to_guess=="scissors"):
+        if(l_guess=="paper"):
+            print("You lost!")
+        if (l_guess == "scissors"):
+            print("You lost!")
+        if (l_guess == "rock"):
+            print("You won!")
+
+    if(l_to_guess not in opts):
+        print("Please type rock, paper, or scissors.")
+
+    counter += 1
 
