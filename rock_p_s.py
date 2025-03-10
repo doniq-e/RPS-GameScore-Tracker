@@ -3,7 +3,7 @@ import random
 opts = ["rock", "paper", "scissors"]
 
 to_guess = random.choice(opts)
-print(to_guess)
+#print(to_guess)
 
 guess = input("Choose rock, paper, or scissors: ")
 
