@@ -2,15 +2,13 @@ import random
 
 opts = ["rock", "paper", "scissors"]
 
-print("Hello! Welcome to rock, paper, scissors!")
-
-
+print("Hello! Welcome to rock, paper, scissors!\nType 'help' to see the rules!")
 
 score = 0
 counter = 0
 
 while counter < 6:
-    guess = input("\nType 'help' to see the rules!\nChoose rock, paper, or scissors: ")
+    guess = input("\nChoose rock, paper, or scissors: ")
     l_guess = guess.lower()
 
     to_guess = random.choice(opts)
@@ -24,31 +22,33 @@ while counter < 6:
         print("\nPlease type rock, paper, or scissors.")
         continue
 
+    print("Your opponent says: " + l_to_guess)
+
     if l_to_guess == "rock":
         if l_guess == "rock":
-            print("You lost!")
+            print("You lost this round!")
         if l_guess == "scissors":
-            print("You lost!")
+            print("You lost this round!")
         if l_guess == "paper":
-            score+=1
-            print("You won!")
+            print("You won this round!")
+            score += 1
 
     if l_to_guess=="paper":
         if l_guess=="paper":
-            print("You lost!")
+            print("You lost this round!")
         if l_guess == "rock":
-            print("You lost!")
+            print("You lost this round!")
         if l_guess == "scissors":
-            print("You won!")
+            print("You won this round!")
             score += 1
 
     if l_to_guess=="scissors":
         if l_guess=="paper":
-            print("You lost!")
+            print("You lost this round!")
         if l_guess == "scissors":
-            print("You lost!")
+            print("You lost this round!")
         if l_guess == "rock":
-            print("You won!")
+            print("You won this round!")
             score += 1
 
     counter += 1
