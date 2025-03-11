@@ -10,7 +10,7 @@ score = 0
 counter = 0
 
 while counter < 6:
-    guess = input("Choose rock, paper, or scissors: ")
+    guess = input("\nType 'help' to see the rules!\nChoose rock, paper, or scissors: ")
     l_guess = guess.lower()
 
     to_guess = random.choice(opts)
@@ -18,9 +18,10 @@ while counter < 6:
 
     if l_guess == "help":
         print("\nYou have 6 rounds to beat the game!\nRemember, rock beats scissors, paper beats rock, and scissors beats paper.\n")
+        continue
 
     if l_guess not in opts:
-        print("Please type rock, paper, or scissors.")
+        print("\nPlease type rock, paper, or scissors.")
         continue
 
     if l_to_guess == "rock":
