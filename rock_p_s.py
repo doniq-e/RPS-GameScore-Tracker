@@ -8,7 +8,7 @@ score = 0
 counter = 0
 
 while counter < 6:
-    guess = input("\nChoose rock, paper, or scissors: ")
+    guess = input("\nChoose 'rock', 'paper', 'scissors', or 'help': ")
     l_guess = guess.lower()
 
     to_guess = random.choice(opts)
@@ -26,7 +26,9 @@ while counter < 6:
 
     if l_to_guess == "rock":
         if l_guess == "rock":
-            print("You lost this round!")
+            print("It's a tie this round!")
+            # IF IT'S A TIE THE PLAYER GETS 0.5 POINTS
+            score += 0.5
         if l_guess == "scissors":
             print("You lost this round!")
         if l_guess == "paper":
@@ -35,7 +37,8 @@ while counter < 6:
 
     if l_to_guess=="paper":
         if l_guess=="paper":
-            print("You lost this round!")
+            print("It's a tie this round!")
+            score += 0.5
         if l_guess == "rock":
             print("You lost this round!")
         if l_guess == "scissors":
@@ -46,7 +49,8 @@ while counter < 6:
         if l_guess=="paper":
             print("You lost this round!")
         if l_guess == "scissors":
-            print("You lost this round!")
+            print("It's a tie this round!")
+            score += 0.5
         if l_guess == "rock":
             print("You won this round!")
             score += 1
