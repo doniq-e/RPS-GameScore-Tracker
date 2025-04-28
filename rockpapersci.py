@@ -58,5 +58,5 @@ while counter < 6:
     counter += 1
     print("\nYour remaining attempts: " + str(6 - counter)+"\n")
 
-printsc = score * 100
-print("Your final score is: " + str(printsc) + "\nSee you next time!")
+print_score = score * 100
+print("Your final score is: " + str(print_score) + "\nSee you next time!")
