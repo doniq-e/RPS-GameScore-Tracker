@@ -1,4 +1,5 @@
 import random
+import csv
 
 opts = ["rock", "paper", "scissors"]
 
@@ -7,7 +8,9 @@ print("Hello! Welcome to rock, paper, scissors!\nType 'help' to see the rules!")
 score = 0
 counter = 0
 
-while counter < 6:
+username = input("Please enter your name: ")
+
+while counter < 5:
     guess = input("\nChoose 'rock', 'paper', 'scissors', or 'help': ")
     l_guess = guess.lower()
 
@@ -56,7 +59,22 @@ while counter < 6:
             score += 1
 
     counter += 1
-    print("\nYour remaining attempts: " + str(6 - counter)+"\n")
+    print("\nYour remaining attempts: " + str(5 - counter)+"\n")
 
 print_score = score * 100
-print("Your final score is: " + str(print_score) + "\nSee you next time!")
+print("Final score for "+ username +": " + str(print_score) + "\nSee you next time!")
+
+list_of_usernames = []
+
+header = ['Username', 'Score']
+with open('game_scores.csv', 'w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerows(header)
+
+
+#file IO
+#save the scores for each round
+if username in list_of_usernames:
+    #change the score only
+else:
+    list_of_usernames.append(username)
