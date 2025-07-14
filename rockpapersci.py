@@ -1,5 +1,6 @@
 import random
 import csv
+import os
 
 opts = ["rock", "paper", "scissors"]
 
@@ -64,17 +65,25 @@ while counter < 5:
 print_score = score * 100
 print("Final score for "+ username +": " + str(print_score) + "\nSee you next time!")
 
-list_of_usernames = []
+newUser = [username, print_score]
+header = ['Username', 'High Score']
 
-header = ['Username', 'Score']
-with open('game_scores.csv', 'w', newline='') as file:
+if not os.path.exists('game_scores.csv'):
+    with open('game_scores.csv', 'w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(header)
+
+with open('game_scores.csv', 'a', newline='') as file:
     writer = csv.writer(file)
-    writer.writerows(header)
+    writer.writerow(newUser)
+
+with open('game_scores.csv', 'r') as file:
+    reader = csv.reader(file)
+    for row in reader:
+        print(row)
 
 
-#file IO
-#save the scores for each round
-if username in list_of_usernames:
-    #change the score only
-else:
-    list_of_usernames.append(username)
+#usernames = []
+#score = []
+
+
