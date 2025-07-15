@@ -1,6 +1,10 @@
 import random
 import csv
 import os
+import matplotlib.pyplot as plt
+
+            #### GAME LOGIC ####
+
 
 opts = ["rock", "paper", "scissors"]
 
@@ -65,25 +69,60 @@ while counter < 5:
 print_score = score * 100
 print("Final score for "+ username +": " + str(print_score) + "\nSee you next time!")
 
+
+            #### FILE IO ####
+
+
 newUser = [username, print_score]
 header = ['Username', 'High Score']
+game_scores = []
 
 if not os.path.exists('game_scores.csv'):
     with open('game_scores.csv', 'w', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(header)
 
-with open('game_scores.csv', 'a', newline='') as file:
-    writer = csv.writer(file)
-    writer.writerow(newUser)
 
 with open('game_scores.csv', 'r') as file:
-    reader = csv.reader(file)
+    reader = csv.DictReader(file)
+    user_found = False
     for row in reader:
-        print(row)
+        if row['Username'] == username:
+            user_found = True
+            # access the users score value
+            current_score = float(row['High Score'])
+            #if new score is greater than existing score then replace with the new score
+            if print_score > current_score:
+                row['High Score'] = str(print_score)
+        game_scores.append(row)
+
+if not user_found:
+    game_scores.append({'Username': username, 'High Score': print_score})
+
+with open('game_scores.csv', 'w', newline='') as file:
+    writer = csv.DictWriter(file, fieldnames=header)
+    writer.writeheader()
+    writer.writerows(game_scores)
 
 
-#usernames = []
-#score = []
+            #### DATA VIS ####
+
+
+usernames = []
+score = []
+
+#username list
+with open('game_scores.csv', 'r') as file:
+    reader = csv.DictReader(file)
+    for row in reader:
+        usernames.append(row['Username'])
+        score.append(float(row['High Score']))
+
+
+plt.plot(usernames, score)
+plt.show()
+
+
+
 
 
