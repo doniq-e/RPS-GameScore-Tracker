@@ -3,8 +3,8 @@ import csv
 import os
 import matplotlib.pyplot as plt
 
-            #### GAME LOGIC ####
 
+            #### GAME LOGIC ####
 
 opts = ["rock", "paper", "scissors"]
 
@@ -23,7 +23,7 @@ while counter < 5:
     l_to_guess = to_guess.lower()
 
     if l_guess == "help":
-        print("\nYou have 6 rounds to beat the game!\nRemember, rock beats scissors, paper beats rock, and scissors beats paper.\n")
+        print("\nYou have 5 rounds to beat the game!\nRemember, rock beats scissors, paper beats rock, and scissors beats paper.\n")
         continue
 
     if l_guess not in opts:
@@ -72,7 +72,6 @@ print("Final score for "+ username +": " + str(print_score) + "\nSee you next ti
 
             #### FILE IO ####
 
-
 newUser = [username, print_score]
 header = ['Username', 'High Score']
 game_scores = []
@@ -107,22 +106,19 @@ with open('game_scores.csv', 'w', newline='') as file:
 
             #### DATA VIS ####
 
-
 usernames = []
 score = []
 
-#username list
+# Put the usernames and scores into lists
 with open('game_scores.csv', 'r') as file:
     reader = csv.DictReader(file)
     for row in reader:
         usernames.append(row['Username'])
         score.append(float(row['High Score']))
 
-
-plt.plot(usernames, score)
+# Displays a bar chart
+plt.bar(usernames, score)
+plt.xlabel("Username")
+plt.ylabel("Scores")
+plt.title("Leaderboard Ranking")
 plt.show()
-
-
-
-
-
