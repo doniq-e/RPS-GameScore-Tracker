@@ -1,4 +1,4 @@
-Rock, Paper, Scissors Game Tracker 🪨📃✂️
+Rock, Paper, Scissors Game Score Tracker 🪨📃✂️
 
 A Rock, Paper, Scissors Game that tracks the users scores and ranks them on a bar chart.
 
