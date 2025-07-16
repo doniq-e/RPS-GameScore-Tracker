@@ -19,7 +19,7 @@
 - Uses CSV file I/O to save and update player scores  
 - Displays an interactive Plotly bar chart to visualize player rankings  
 
-#
+##
 
 ### ***Leaderboard displaying top scores from the game.***
 ![img.png](img.png)
