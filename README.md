@@ -4,7 +4,7 @@
 
 ###
 
-#### 📖 Libraries Used: 📖
+#### 📖 Libraries Used: 
 - ***'random'*** 
 - ***'csv'***
 - ***'os'***
@@ -12,7 +12,7 @@
 
 ###
 
-#### 🌟 Features: 🌟  
+#### 🌟 Features:  
 - Play 5 rounds of Rock, Paper, Scissors  
 - First enter a name, then type ***'rock'***, ***'paper'***, ***'scissors'***, ***'help'*** (for instructions), or ***'game'*** (to see the leaderboard)  
 - Win = 1 point, Tie = 0.5 points, final score is multiplied by 100  
